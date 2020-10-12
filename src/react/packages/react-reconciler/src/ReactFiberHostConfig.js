@@ -9,7 +9,7 @@
 
 /* eslint-disable react-internal/invariant-args */
 
-// import invariant from 'shared/invariant';
+import invariant from 'shared/invariant';
 export * from './forks/ReactFiberHostConfig.dom'
 
 // We expect that our Rollup, Jest, and Flow configurations

@@ -13,7 +13,7 @@ const ERROR = 2;
 module.exports = {
   extends: [
     // 'fbjs',
-    'prettier'
+    // 'prettier'
   ],
 
   // Stop ESLint from looking for a configuration file in parent folders
