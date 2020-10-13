@@ -1192,6 +1192,7 @@ export function unbatchedUpdates<A, R>(fn: (a: A) => R, a: A): R {
   const prevExecutionContext = executionContext;
   executionContext &= ~BatchedContext;
   executionContext |= LegacyUnbatchedContext;
+  debugger
   try {
     return fn(a);
   } finally {
