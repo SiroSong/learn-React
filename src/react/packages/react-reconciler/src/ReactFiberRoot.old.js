@@ -98,6 +98,5 @@ export function createFiberRoot(
   uninitializedFiber.stateNode = root;
 
   initializeUpdateQueue(uninitializedFiber);
-
   return root;
 }

@@ -110,6 +110,7 @@ function shouldHydrateDueToLegacyHeuristic(container) {
   );
 }
 
+// 初始化的时候创建root
 function legacyCreateRootFromDOMContainer(
   container: Container,
   forceHydrate: boolean,
@@ -179,6 +180,7 @@ function legacyRenderSubtreeIntoContainer(
   forceHydrate: boolean,
   callback: ?Function,
 ) {
+  debugger
   if (__DEV__) {
     topLevelUpdateWarnings(container);
     warnOnInvalidCallback(callback === undefined ? null : callback, 'render');
@@ -247,10 +249,6 @@ export function findDOMNode(
   if ((componentOrElement: any).nodeType === ELEMENT_NODE) {
     return (componentOrElement: any);
   }
-  if (__DEV__) {
-    return findHostInstanceWithWarning(componentOrElement, 'findDOMNode');
-  }
-  return findHostInstance(componentOrElement);
 }
 
 export function hydrate(
@@ -284,6 +282,7 @@ export function hydrate(
   );
 }
 
+// 组件render方法
 export function render(
   element: React$Element<any>,
   container: Container,

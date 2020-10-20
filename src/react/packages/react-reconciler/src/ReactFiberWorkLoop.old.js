@@ -264,6 +264,7 @@ const RootSuspendedWithDelay = 4;
 const RootCompleted = 5;
 
 // Describes where we are in the React execution stack
+// 描述我们在React执行堆栈中的位置
 let executionContext: ExecutionContext = NoContext;
 // The root we're working on
 let workInProgressRoot: FiberRoot | null = null;
@@ -3386,8 +3387,7 @@ function computeThreadID(root: FiberRoot, lane: Lane | Lanes) {
   // NOTE: Intentionally unsound cast. All that matters is that it's a number
   // and it represents a batch of work. Could make a helper function instead,
   // but meh this is fine for now.
-  return (lane: any) * 1000 + root.interactionThreadID;
-}
+  return (lane: any)}
 
 export function markSpawnedWork(lane: Lane | Lanes) {
   if (!enableSchedulerTracing) {
