@@ -9,6 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <span className="App-link">000000</span>
+        <ClassChild />
       </header>
     </div>
   );

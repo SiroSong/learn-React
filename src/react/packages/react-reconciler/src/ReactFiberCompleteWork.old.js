@@ -648,7 +648,6 @@ function completeWork(
   renderLanes: Lanes,
 ): Fiber | null {
   const newProps = workInProgress.pendingProps;
-
   switch (workInProgress.tag) {
     case IndeterminateComponent:
     case LazyComponent:

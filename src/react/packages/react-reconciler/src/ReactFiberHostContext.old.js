@@ -75,6 +75,7 @@ function getHostContext(): HostContext {
 }
 
 function pushHostContext(fiber: Fiber): void {
+  console.log('pushHostContext', fiber)
   const rootInstance: Container = requiredContext(
     rootInstanceStackCursor.current,
   );
