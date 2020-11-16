@@ -110,7 +110,12 @@ function shouldHydrateDueToLegacyHeuristic(container) {
   );
 }
 
-// 初始化的时候创建root
+/**
+ * 初始化的时候根据dom容器创建react根节点
+ *
+ * @param {*} container 根组建挂载的dom容器
+ * @param {*} forceHydrate srr注水
+ */
 function legacyCreateRootFromDOMContainer(
   container: Container,
   forceHydrate: boolean,
@@ -121,6 +126,7 @@ function legacyCreateRootFromDOMContainer(
   if (!shouldHydrate) {
     let warned = false;
     let rootSibling;
+    // 移除dom容器内所有的子元素
     while ((rootSibling = container.lastChild)) {
       if (__DEV__) {
         if (
@@ -173,6 +179,18 @@ function warnOnInvalidCallback(callback: mixed, callerName: string): void {
   }
 }
 
+/**
+ * 将子树渲染到container中到旧版本方法
+ *
+ * 1.当container._reactRootContainer为空时，说明app第一次初始化构建，创建react
+ *   根节点。
+ *
+ * @param {*} parentComponent 父组建
+ * @param {*} children 子组建
+ * @param {*} container dom容器
+ * @param {*} forceHydrate ssr注水
+ * @param {*} callback 回调
+ */
 function legacyRenderSubtreeIntoContainer(
   parentComponent: ?React$Component<any, any>,
   children: ReactNodeList,
@@ -191,6 +209,7 @@ function legacyRenderSubtreeIntoContainer(
   let fiberRoot;
   if (!root) {
     // Initial mount
+    // 初始化挂载
     root = container._reactRootContainer = legacyCreateRootFromDOMContainer(
       container,
       forceHydrate,
@@ -281,7 +300,13 @@ export function hydrate(
   );
 }
 
-// 组件render方法
+/**
+ * ReactDOM.render的方法
+ *
+ * @param {*} element react组建
+ * @param {*} container dom容器
+ * @param {*} callback 回调
+ */
 export function render(
   element: React$Element<any>,
   container: Container,

@@ -26,6 +26,13 @@ import {unstable_getThreadID} from 'scheduler/tracing';
 import {initializeUpdateQueue} from './ReactUpdateQueue.old';
 import {LegacyRoot, BlockingRoot, ConcurrentRoot} from './ReactRootTags';
 
+/**
+ * FiberRoot节点的构造函数
+ *
+ * @param {*} containerInfo dom容器
+ * @param {*} tag
+ * @param {*} hydrate
+ */
 function FiberRootNode(containerInfo, tag, hydrate) {
   this.tag = tag;
   this.containerInfo = containerInfo;
@@ -80,6 +87,14 @@ function FiberRootNode(containerInfo, tag, hydrate) {
   }
 }
 
+/**
+ * 创建FiberRoot对象
+ *
+ * @param {*} containerInfo dom容器
+ * @param {*} tag
+ * @param {*} hydrate
+ * @param {*} hydrationCallbacks
+ */
 export function createFiberRoot(
   containerInfo: any,
   tag: RootTag,

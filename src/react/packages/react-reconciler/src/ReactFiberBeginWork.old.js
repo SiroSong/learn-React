@@ -1036,7 +1036,6 @@ function finishClassComponent(
 }
 
 function pushHostRootContext(workInProgress) {
-  console.log('pushHostRootContext', workInProgress)
   const root = (workInProgress.stateNode: FiberRoot);
   if (root.pendingContext) {
     pushTopLevelContextObject(

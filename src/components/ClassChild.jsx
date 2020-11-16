@@ -7,16 +7,24 @@ export default class ClassChild extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({
-      text: 'hello world'
+    setTimeout(() => {
+      this.setState({
+        text: 'hello world'
+      })
+    }, 2000);
+
+    this.setState(() => {
+      return {
+        text: 'HELLO WORLD'
+      }
     })
   }
 
   render() {
     return (
       <div>
-        ClassChild
-        <span>{this.state.text}</span>
+        <p>{this.state.text}</p>
+        {this.props.children}
       </div>
     )
   }

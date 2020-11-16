@@ -20,7 +20,7 @@ module.exports = {
   root: true,
 
   plugins: [
-    'jest',
+    // 'jest',
     'no-for-of-loops',
     'no-function-declare-after-return',
     'react',
@@ -159,9 +159,9 @@ module.exports = {
       files: ['**/__tests__/*.js'],
       rules: {
         // https://github.com/jest-community/eslint-plugin-jest
-        'jest/no-focused-tests': ERROR,
-        'jest/valid-expect': ERROR,
-        'jest/valid-expect-in-promise': ERROR,
+        // 'jest/no-focused-tests': ERROR,
+        // 'jest/valid-expect': ERROR,
+        // 'jest/valid-expect-in-promise': ERROR,
       },
     },
     {

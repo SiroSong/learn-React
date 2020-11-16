@@ -113,6 +113,14 @@ if (__DEV__) {
 
 let debugCounter = 1;
 
+/**
+ * FiberNode构造函数
+ *
+ * @param {*} tag
+ * @param {*} pendingProps
+ * @param {*} key
+ * @param {*} mode
+ */
 function FiberNode(
   tag: WorkTag,
   pendingProps: mixed,
@@ -127,8 +135,11 @@ function FiberNode(
   this.stateNode = null;
 
   // Fiber
+  // 父节点
   this.return = null;
+  // 子节点
   this.child = null;
+  // 下一个兄弟节点
   this.sibling = null;
   this.index = 0;
 
@@ -207,6 +218,21 @@ function FiberNode(
 //    is faster.
 // 5) It should be easy to port this to a C struct and keep a C implementation
 //    compatible.
+/**
+ * 这仍然是一个构造函数，而不是POJO构造函数
+ *
+ * 请确保我们做到以下几点:
+ * 1)任何人都不应该添加任何实例方法。实例方法在进行优化时可能更难预测，而且它们几乎从来没有在静态编译器中正确内联。
+ * 2)任何人都不应该依赖‘instanceof Fiber’进行类型测试。我们应该知道什么时候它是纤维。
+ * 3)我们可能想尝试使用数字键，因为它们在非jit环境中更容易优化。
+ * 4)如果更快的话，我们可以很容易地从构造函数过渡到createFiber对象字面量。
+ * 5)将其移植到C结构体并保持C实现的兼容性应该很容易。
+ *
+ * @param {*} tag
+ * @param {*} pendingProps
+ * @param {*} key
+ * @param {*} mode
+ */
 const createFiber = function(
   tag: WorkTag,
   pendingProps: mixed,

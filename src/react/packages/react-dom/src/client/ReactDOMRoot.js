@@ -60,6 +60,13 @@ function ReactDOMRoot(container: Container, options: void | RootOptions) {
   this._internalRoot = createRootImpl(container, ConcurrentRoot, options);
 }
 
+/**
+ * react根组建构造函数
+ *
+ * @param {*} container dom容器
+ * @param {*} tag 根组建的tag类型
+ * @param {*} options
+ */
 function ReactDOMBlockingRoot(
   container: Container,
   tag: RootTag,
@@ -114,6 +121,13 @@ ReactDOMRoot.prototype.unmount = ReactDOMBlockingRoot.prototype.unmount = functi
   });
 };
 
+/**
+ * 生成react根组建的实现函数
+ *
+ * @param {*} container dom容器
+ * @param {*} tag 根元素标记
+ * @param {*} options
+ */
 function createRootImpl(
   container: Container,
   tag: RootTag,

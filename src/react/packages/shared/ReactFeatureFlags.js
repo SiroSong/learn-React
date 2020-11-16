@@ -90,6 +90,7 @@ export const warnAboutSpreadingKeyToJSX = false;
 
 export const enableComponentStackLocations = true;
 
+// 控制使用新版reconciler开关
 export const enableNewReconciler = false;
 
 // Errors that are thrown while unmounting (or after in the case of passive effects)
