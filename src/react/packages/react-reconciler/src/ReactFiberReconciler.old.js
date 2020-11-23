@@ -247,6 +247,14 @@ export function createContainer(
   return createFiberRoot(containerInfo, tag, hydrate, hydrationCallbacks);
 }
 
+/**
+ * 更新容器
+ *
+ * @param {*} element
+ * @param {*} container
+ * @param {*} parentComponent
+ * @param {*} callback
+ */
 export function updateContainer(
   element: ReactNodeList,
   container: OpaqueRoot,

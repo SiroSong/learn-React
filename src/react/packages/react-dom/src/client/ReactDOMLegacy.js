@@ -111,7 +111,7 @@ function shouldHydrateDueToLegacyHeuristic(container) {
 }
 
 /**
- * 初始化的时候根据dom容器创建react根节点
+ * 初始化的时候根据dom容器创建ReactRoot方法
  *
  * @param {*} container 根组建挂载的dom容器
  * @param {*} forceHydrate srr注水

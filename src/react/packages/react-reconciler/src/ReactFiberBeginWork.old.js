@@ -1035,6 +1035,10 @@ function finishClassComponent(
   return workInProgress.child;
 }
 
+/**
+ *
+ * @param {*} workInProgress
+ */
 function pushHostRootContext(workInProgress) {
   const root = (workInProgress.stateNode: FiberRoot);
   if (root.pendingContext) {
@@ -3080,13 +3084,18 @@ function remountFiber(
   }
 }
 
+  /**
+   *
+   * @param {*} current
+   * @param {*} workInProgress
+   * @param {*} renderLanes
+   */
 function beginWork(
   current: Fiber | null,
   workInProgress: Fiber,
   renderLanes: Lanes,
 ): Fiber | null {
   const updateLanes = workInProgress.lanes;
-
   if (__DEV__) {
     if (workInProgress._debugNeedsRemount && current !== null) {
       // This will restart the begin phase with a new fiber.

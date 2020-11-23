@@ -23,8 +23,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <span className="App-link">000000</span>
           <ClassChild>
-            <span>123</span>
-            <span>456</span>
+            <span>AA</span>
           </ClassChild>
         </header>
       </div>

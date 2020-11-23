@@ -87,6 +87,13 @@ const initialTimeMs: number = Scheduler_now();
 // the behavior of performance.now and keep our times small enough to fit
 // within 32 bits.
 // TODO: Consider lifting this into Scheduler.
+/**
+ * 如果初始时间戳相当小，可以直接使用调度器的“now”。这将是支持“性能。now”的现代浏
+ * 览器的情况。在较老的浏览器中，调度器会退回到“Date”。now '，它返回一个Unix时间
+ * 戳。在这种情况下，减去模块初始化时间来模拟性能行为。把我们的时间压缩到32位以内。
+ *
+ * 待办事项:考虑将其提升到调度程序中。
+ */
 export const now =
   initialTimeMs < 10000 ? Scheduler_now : () => Scheduler_now() - initialTimeMs;
 

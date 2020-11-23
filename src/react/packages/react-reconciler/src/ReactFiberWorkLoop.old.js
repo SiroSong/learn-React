@@ -515,6 +515,13 @@ function requestRetryLane(fiber: Fiber) {
   return findRetryLane(currentEventWipLanes);
 }
 
+/**
+ * 在fiber对象上调度更新
+ *
+ * @param {*} fiber
+ * @param {*} lane
+ * @param {*} eventTime
+ */
 export function scheduleUpdateOnFiber(
   fiber: Fiber,
   lane: Lane,
@@ -963,6 +970,10 @@ function markRootSuspended(root, suspendedLanes) {
 
 // This is the entry point for synchronous tasks that don't go
 // through Scheduler
+/**
+ * 同步任务入口方法
+ * @param {*} root
+ */
 function performSyncWorkOnRoot(root) {
   invariant(
     (executionContext & (RenderContext | CommitContext)) === NoContext,
@@ -1189,6 +1200,12 @@ export function discreteUpdates<A, B, C, D, R>(
   }
 }
 
+/**
+ * 不进行批量更新
+ *
+ * @param {*} fn
+ * @param {*} a
+ */
 export function unbatchedUpdates<A, R>(fn: (a: A) => R, a: A): R {
   const prevExecutionContext = executionContext;
   executionContext &= ~BatchedContext;
@@ -3127,6 +3144,10 @@ if (__DEV__ && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
 
     // Before entering the begin phase, copy the work-in-progress onto a dummy
     // fiber. If beginWork throws, we'll use this to reset the state.
+  /**
+   * 在进入begin阶段之前，复制work-in-progress到一个伪Fiber对象上。如果beginWork
+   * 抛出了，我们用它来重置状态。
+   */
     const originalWorkInProgressCopy = assignFiberPropertiesInDEV(
       dummyFiber,
       unitOfWork,

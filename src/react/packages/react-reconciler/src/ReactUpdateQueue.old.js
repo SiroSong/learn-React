@@ -186,6 +186,12 @@ export function cloneUpdateQueue<State>(
   }
 }
 
+/**
+ * 创建更新对象
+ *
+ * @param {*} eventTime
+ * @param {*} lane
+ */
 export function createUpdate(eventTime: number, lane: Lane): Update<*> {
   const update: Update<*> = {
     eventTime,
